@@ -2,6 +2,9 @@ import random
 
 import netsquid as ns
 from netsquid.nodes import Node
+from netsquid.components import QuantumChannel, Channel
+from netsquid.nodes import DirectConnection
+from netsquid_boardgames.protocols import TaskMasterProtocol, PlayerProtocol
 
 def main():
 	ns.sim_reset()
@@ -9,7 +12,7 @@ def main():
 	p1_node = Node(name="PlayerOne")
 	p0_node = Node(name="PlayerZero")
 
-	from netsquid.components import QuantumChannel, Channel
+	
 	cht0q = QuantumChannel(name="qchannel[tm to p0]")
 	cht1q = QuantumChannel(name="qchannel[tm to p1]")
 	ch0tq = QuantumChannel(name="qchannel[p0 to tm]")
@@ -28,7 +31,7 @@ def main():
 	ch1tc.ports['send'].connect(p1_node.ports['cPtoTM'])
 	ch1tc.ports['recv'].connect(tm_node.ports['cIO1'])
 
-	from netsquid.nodes import DirectConnection
+	
 	qconnection0 = DirectConnection(name="qconn[tm|p0]", channel_AtoB=cht0q, channel_BtoA=ch0tq)
 	qconnection1 = DirectConnection(name="qconn[tm|p1]", channel_AtoB=cht1q, channel_BtoA=ch1tq)
 
