@@ -6,8 +6,7 @@ Description
 
 This is a user contributed _snippet_ for the [NetSquid quantum network simulator](https://netsquid.org).
 
-For multiplayer board games with a Task Master based on quantum operations. THIS IS A WORK IN PROGRESS.
-The board games are such that the users cannot look at the contents of the board at all times. The board remains with the TaskMaster. The players have to calculate the move that their opponent might have taken and plan their moves accordingly. The place to operate on(qubit) is given to a player by their opponent. 
+A snippet for implementing and playing board games using quantum networks and quantum operations. The network contains a TaskMaster node which controls the main memory for the board game. There are two other nodes for players zero and one. Each player receives a qubit from the TaskMaster and can choose to perform any quantum operation on it and then specify which qubit will be sent to the other player. 
 
 Installation
 ------------
@@ -21,14 +20,12 @@ To build and see the docs see the [docs README](docs/README.md).
 
 Usage
 -----
+The user has to specify the size of QuantumMemory that will be used as the board, this initializes the network with three nodes. Each player will get as many turns as the size of the QuantumMemory. At each turn, player can choose to operate on the qubit and then specify the index of qubit that will be sent to the other player. At the end of all the turns, the result after measuring all the qubits in the QuantumMemory will be presented and a score based on the value of qubit and its probability will be calculated. If the score is more than half the size of QuantumMemory, Player One wins; else Player Zero wins. 
 
-**TEMPLATE**: briefly describe how to use your package.
-
-Contributors
+Contributor
 ------------
 
-**TEMPLATE**: specify who contributed to your package and their contact details.
-
+Yash Shrivastava (Maxsash) | yash@maxsash.com
 License
 -------
 
