@@ -26,6 +26,7 @@ Contributor
 ------------
 
 Yash Shrivastava (Maxsash) | yash@maxsash.com
+
 License
 -------
 
